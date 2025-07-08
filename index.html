@@ -8,7 +8,7 @@
 <body>
     <section id="cours" class="container">
         <h1>Nos Cours</h1>
-        <div>
+        <div class="cards">
             <div class="card">
                 <div class="card-text">
                     <h2>Robotics</h2>
@@ -19,12 +19,12 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-text">
-                    <h2>English</h2>
-                    <p>Apprenez l'anglais de manière interactive à travers des jeux, des histoires et des activités immersives</p></div>
                 <div class="card-image">
                     <img src="cours images/english.png" alt="enfant certificat">
                 </div>
+                <div class="card-text">
+                    <h2>English</h2>
+                    <p>Apprenez l'anglais de manière interactive à travers des jeux, des histoires et des activités immersives</p></div>
             </div>            
             <div class="card">
                 <div class="card-text">
@@ -36,14 +36,35 @@
                 </div>
             </div>            
             <div class="card">
-                <div class="card-text">
-                    <h2>Programmation</h2>
-                    <p>Initiez-vous au code en créant des jeux, des animations et des robots, tout en vous amusant.</p></div>
                 <div class="card-image">
                     <img src="cours images/programmation.png" alt="enfant programmation">
                 </div>
+                <div class="card-text">
+                    <h2>Programmation</h2>
+                    <p>Initiez-vous au code en créant des jeux, des animations et des robots, tout en vous amusant.</p></div>
             </div>
         </div>
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.card');
+        const options = {
+            root: null,           // viewport
+            rootMargin: '0px',
+            threshold: 0.4        // 40% visible
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                obs.unobserve(entry.target);
+            }
+            });
+        }, options);
+
+        cards.forEach(card => observer.observe(card));
+        });
+        </script>
     </section>
 </body>
 </html>
