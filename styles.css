@@ -11,7 +11,6 @@ h1 {
     color: #2c3e50;
     margin: 0;
     font-size: 2.5rem;
-    grid-area: 1 / 1 / 2 / -1;
     justify-self: center;
 }
 
@@ -21,76 +20,49 @@ h1 {
     padding: 20px;
 }
 
-.grid {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    position: relative; /* Ensure cards are positioned relative to the grid */
-}
-
 .card {
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    transform: translateY(50px); /* Start position for animation */
-    opacity: 1; /* Initially invisible */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.card:nth-child(1) {
-    animation-delay: 0.2s; /* Delay for the first card */
-}
-
-.card:nth-child(2) {
-    animation-delay: 0.4s; /* Delay for the second card */
-}
-
-.card:nth-child(3) {
-    animation-delay: 0.6s; /* Delay for the third card */
-}
-
-.card:nth-child(4) {
-    animation-delay: 0.8s; /* Delay for the fourth card */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 900px; /* Significant card width */
+    margin: 20px auto; /* Center with spacing */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: scale(1.1); /* Make the card bigger */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a larger shadow */
-    z-index: 10; /* Bring the hovered card to the front */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    z-index: 10;
 }
 
-.card .icon {
-    margin-bottom: 15px;
+.card-image img {
+    width: 250px;  /* Larger image */
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
-.card .icon img {
-    width: 50px;
-    height: 50px;
+.card-text {
+    flex: 1;
+    text-align: left;
 }
 
-.card h2 {
-    margin: 0 0 10px;
-    font-size: 1.25rem;
+.card-text h2 {
+    margin: 0 0 16px;
+    font-size: 1.8rem; /* Larger title */
     color: #2c3e50;
 }
 
-.card p {
+.card-text p {
     margin: 0;
     color: #555;
-    line-height: 1.6;
+    font-size: 1.1rem; /* Slightly larger text */
+    line-height: 1.7;
 }
 
-/* Keyframes for the pop-up animation */
-@keyframes popUp {
-    0% {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
+
