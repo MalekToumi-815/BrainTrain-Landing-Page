@@ -1,0 +1,492 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* Header styles */
+.header {
+    background: linear-gradient(to right, #c2d3f0, #e6edf7); /* Lighter gradient */
+    box-shadow: none; /* Remove the header shadow */
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 30px 0; /* Increased padding for a taller appearance */
+    padding-left: 0; /* Remove any padding on the left */
+    margin-left: 0; /* Remove any margin on the left */
+    min-height: 120px; /* Adjusted from 90px to 120px */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: none; /* Remove max-width to allow full-width alignment */
+    margin: 0; /* Remove centering margin */
+    padding: 0; /* Ensure no padding pushes content inward */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items horizontally */
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Logo section */
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+    min-width: 0;
+    margin-left: 0; /* Ensure no margin on the left */
+    padding-left: 0; /* Remove any padding on the left */
+    justify-content: flex-start; /* Align logo section to the left */
+}
+
+.logo {
+    height: 130px; /* Increase the height of the logo */
+    width: auto;
+    max-width: 150px; /* Adjust the maximum width for better visibility */
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 50%; /* Make the logo image circular */
+    overflow: hidden; /* Ensure no overflow from the circular logo */
+}
+
+.company-name {
+    font-family: 'Playfair Display', serif; /* Modern serif font */
+    font-size: clamp(28px, 5vw, 40px); /* Adjust font size for better visibility */
+    font-weight: bold;
+    color: #2c3e50; /* Darker color for better contrast */
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Navigation styles */
+.navigation {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: clamp(10px, 3vw, 30px);
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.nav-menu li {
+    flex-shrink: 0;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #2c3e50; /* Darker color for navigation links */
+    font-weight: 500;
+    font-size: clamp(16px, 2.5vw, 18px);
+    padding: 12px 18px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: block;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a:focus {
+    color: #5572a8; /* Slightly lighter hover color */
+    outline: none;
+}
+
+/* Update hover animation for navigation links */
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fcfcfc;
+    transition: width 0.3s ease;
+}
+
+.nav-menu li a:hover::after,
+.nav-menu li a:focus::after {
+    width: 100%;
+}
+
+/* Ensure the hamburger menu appears on the same line as the logo section */
+/* Position the hamburger menu at the top right of the screen */
+.hamburger-menu {
+    position: absolute; /* Position it absolutely within the header */
+    top: 50%; /* Center vertically within the header */
+    right: 20px; /* Align to the right edge with some padding */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    display: none; /* Default hidden */
+    cursor: pointer;
+    font-size: 24px;
+    color: #2c3e50;
+}
+
+.navigation {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block; /* Show hamburger menu on small screens */
+    }
+
+    .navigation {
+        display: none; /* Hide navigation links */
+    }
+
+    .navigation.active {
+        display: flex; /* Show navigation links when active */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(to right, #c2d3f0, #e6edf7); /* Match header background */
+        color: #ffffff; /* Ensure text is visible */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        animation: slideIn 0.5s ease-out forwards; /* Smooth slide-in animation */
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Ensure the navigation disappears when the screen width is 892px or lower */
+@media (max-width: 892px) and (min-width: 769px) {
+    .hamburger-menu {
+        display: block; /* Show hamburger menu */
+    }
+
+    .navigation {
+        display: none; /* Hide navigation links */
+    }
+
+    .navigation.active {
+        display: flex; /* Show navigation links when active */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(to right, #c2d3f0, #e6edf7); /* Match header background */
+        color: #ffffff; /* Ensure text is visible */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        animation: slideIn 0.5s ease-out forwards; /* Smooth slide-in animation */
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Ensure the logo section is at the leftmost and navigation beside it for screens wider than 892px */
+@media (min-width: 893px) {
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align content to the start */
+        padding: 0 20px; /* Add padding for spacing */
+        min-height: 120px; /* Reduced height from 150px to 140px */
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align items to the start */
+        gap: 20px; /* Add spacing between logo and navigation */
+    }
+
+    .logo {
+        height: 100px; /* Adjust logo size to match header height */
+        max-width: 140px;
+    }
+
+    .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 15px; /* Add spacing between logo and text */
+    }
+
+    .navigation {
+        display: flex; /* Ensure navigation is visible */
+        margin-left: 20px; /* Add spacing between the logo section and navigation */
+        justify-content: flex-start; /* Align navigation directly to the right of the logo section */
+        flex: 1; /* Allow navigation to take up necessary space */
+    }
+
+    .nav-menu {
+        display: flex;
+        gap: 20px; /* Add spacing between navigation items */
+    }
+}
+
+/* Responsive design */
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .header {
+        min-height: 80px;
+        padding: 15px 0;
+    }
+    
+    .nav-menu {
+        gap: 20px;
+    }
+    
+    .nav-menu li a {
+        padding: 10px 15px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 0;
+        min-height: 80px;
+    }
+    
+    .container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .logo-section {
+        justify-content: center;
+        gap: 12px;
+    }
+    
+    .logo {
+        height: 50px;
+    }
+    
+    .navigation {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+        gap: 18px;
+        justify-content: center;
+    }
+    
+    .nav-menu li a {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .header {
+        padding: 5px 0;
+        min-height: 50px;
+    }
+    
+    .container {
+        gap: 10px;
+        padding: 0 8px;
+    }
+    
+    .logo-section {
+        gap: 5px;
+    }
+    
+    .logo {
+        height: 30px;
+        max-width: 40px;
+    }
+    
+    .company-name {
+        font-size: 16px;
+    }
+    
+    .nav-menu {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    
+    .nav-menu li a {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 320px) {
+    .container {
+        padding: 0 5px;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .header {
+        padding: 5px 0;
+        min-height: 50px;
+    }
+    
+    .container {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .logo-section {
+        justify-content: flex-start;
+    }
+    
+    .navigation {
+        justify-content: flex-end;
+    }
+    
+    .nav-menu {
+        gap: 10px;
+        flex-wrap: nowrap;
+    }
+    
+    .nav-menu li a {
+        font-size: 13px;
+        padding: 4px 6px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header {
+        position: static;
+        box-shadow: none;
+        background: white;
+        padding: 10px 0;
+    }
+    
+    .nav-menu li a {
+        color: #000;
+    }
+    
+    .nav-menu li a::after {
+        display: none;
+    }
+}
+
+/* Intro section styles */
+.intro-section {
+    background: linear-gradient(to right, #c2d3f0, #e6edf7); /* Match header background */
+    color: #2c3e50; /* Darker text color for intro section */
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh; /* Full viewport height */
+}
+
+.intro-text {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+/* Update symbolic phrase styles */
+.symbolic-phrase {
+    font-family: 'Roboto Slab', serif; /* Change to a modern serif font */
+    font-size: 3rem; /* Make the text larger */
+    font-weight: 700; /* Make the text bolder */
+    margin-bottom: 20px;
+    text-align: left; /* Align to the top */
+}
+
+.description {
+    font-family: 'Lora', serif; /* Change to a refined serif font */
+    font-size: 1.2rem; /* Increase the font size */
+    line-height: 1.8; /* Improve readability */
+    color: #2c3e50; /* Ensure the text color matches the theme */
+}
+
+.intro-image {
+    margin-left: auto; /* Ensure the image is pushed to the rightmost */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.intro-image img {
+    max-width: 80%;
+    max-height: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Style for the 'Découvrez Nos Cours' button */
+.discover-courses {
+    background-color: #5572a8; /* Match the theme color */
+    color: #ffffff; /* White text for contrast */
+    font-size: 1rem; /* Adjust font size */
+    padding: 10px 20px; /* Add padding for better appearance */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    align-self: center;
+    margin-top: auto; /* Push the button to the bottom */
+}
+
+.discover-courses:hover {
+    background-color: #2c3e50; /* Darker shade on hover */
+}
+
