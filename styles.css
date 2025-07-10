@@ -149,7 +149,7 @@ p {
 
 /* Image styling */
 .card-image img {
-    width: 40%; /* Reduce image width */
+    width: 50%; /* Increase image width */
     height: auto; /* Maintain aspect ratio */
     margin: 0 auto; /* Center the image */
     border-radius: 10px; /* Slightly rounded corners for a modern look */
@@ -1014,7 +1014,7 @@ p {
 .actuality-section {
     padding: 2rem 5%;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1033,12 +1033,14 @@ p {
 .actuality-card {
     background: #ffffff;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
     opacity: 0;
     transform: translateY(30px);
     width: 30vw;
+    height: 400px;
+    
 }
 
 /* Trigger fadeInUp on .active */
