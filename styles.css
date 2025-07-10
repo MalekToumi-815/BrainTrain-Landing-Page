@@ -652,6 +652,15 @@ p {
         font-size: 16px;
         padding: 10px 15px;
     }
+
+    .symbolic-phrase {
+        font-size: 1rem; /* Reduce text size for smaller screens */
+    }
+
+    .discover-courses {
+        font-size: 0.3rem; /* Reduce button text size */
+        padding: 8px 16px; /* Adjust button padding */
+    }
 }
 
 /* Small phones */
@@ -813,6 +822,15 @@ p {
     }
     .intro-section {
         margin-bottom: 60px; /* Increase spacing for smaller screens */
+    }
+
+    .intro-text h1.symbolic-phrase {
+        font-size: 2rem; /* Smaller text size for small screens */
+    }
+
+    .discover-courses {
+        font-size: 1rem; /* Smaller button text size */
+        padding: 10px 20px; /* Adjust button padding */
     }
 }
 
