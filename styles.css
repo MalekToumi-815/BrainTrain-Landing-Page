@@ -11,12 +11,27 @@ html {
 }
 
 body {
-    font-family: 'Playfair Display', serif;
-    line-height: 1.6;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Use a joyful font */
+    font-size: 22px; /* Increase base font size further */
+    font-weight: bold; /* Make text bolder */
+    line-height: 1.8; /* Improve readability */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
 }
+
+/* Update heading styles */
+h1, h2 {
+    font-size: 3.5rem; /* Make headings much larger */
+    font-weight: bold; /* Make headings bolder */
+}
+
+/* Update paragraph styles */
+p {
+    font-size: 1.8rem; /* Make paragraph text much larger */
+    font-weight: bold; /* Make paragraph text bolder */
+}
+
 /* ————————————————————————————————————————
     Cours Styles 
    ———————————————————————————————————————— */
@@ -64,17 +79,14 @@ body {
     border-radius: 12px;
     overflow: hidden;
     display: flex;
-    gap: 100px;
-    align-items: center;
+    gap: 20px; /* Reduced gap between image and text */
+    justify-content: center; /* Center align image and text */
+    align-items: center; /* Vertically align text and image */
     padding: 24px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; /* Center text within its container */
+    flex-direction: column; /* Stack items vertically */
 }
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    z-index: 10;
-}
-
 .card-text h2 {
     margin: 0 0 12px;
     font-size: 1.8rem;
@@ -137,10 +149,36 @@ body {
 
 /* Image styling */
 .card-image img {
-    width: 100%;
-    height: 400px;
-    border-radius: 8px;
-    object-fit: cover;
+    width: 40%; /* Reduce image width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center the image */
+    border-radius: 10px; /* Slightly rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.card-image img:hover {
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+/* Remove hover animation from the card itself */
+.card:hover {
+    transform: none;
+    box-shadow: none;
+    z-index: auto;
+}
+
+/* Keep hover animation for the image and text */
+.card-image img:hover {
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.card-text:hover {
+    color: #2a4185; /* Change text color on hover */
+    transform: scale(1.05); /* Slightly enlarge the text on hover */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover effect */
 }
 
 /* Responsive Adjustments */
@@ -186,6 +224,30 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Initial hidden states for testimonial cards */
+.testimonial-card {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+/* Scroll-triggered animations for testimonial cards */
+.testimonial-card.in-view {
+    animation: slideInTestimonial 0.6s ease-out forwards;
+}
+
+/* Stagger delays for testimonial cards */
+.testimonial-card:nth-of-type(1).in-view { animation-delay: 0.2s; }
+.testimonial-card:nth-of-type(2).in-view { animation-delay: 0.4s; }
+.testimonial-card:nth-of-type(3).in-view { animation-delay: 0.6s; }
+
+/* Keyframes for testimonial card animation */
+@keyframes slideInTestimonial {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .testimonial-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
@@ -221,6 +283,25 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+/* Initial hidden states for contact form */
+.contact-form {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+/* Scroll-triggered animations for contact form */
+.contact-form.in-view {
+    animation: slideInContact 0.6s ease-out forwards;
+}
+
+/* Keyframes for contact form animation */
+@keyframes slideInContact {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .form-group {
@@ -286,6 +367,7 @@ body {
     width: 100%;
     margin: 0;
     box-sizing: border-box;
+    margin-bottom: 0; /* Remove any bottom margin */
 }
 
 .container {
@@ -682,13 +764,14 @@ body {
     align-items: center;
     justify-content: space-between;
     height: 100vh; /* Full viewport height */
+    margin-top: 0; /* Remove any top margin */
 }
 
 .intro-text {
     max-width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    
     justify-content: center;
     flex: 1;
 }
@@ -709,19 +792,28 @@ body {
     color: #2c3e50; /* Ensure the text color matches the theme */
 }
 
-.intro-image {
-    margin-left: auto; /* Ensure the image is pushed to the rightmost */
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+/* Intro image adjustments */
+.intro-image img {
+    max-width: 800px; /* Limit the maximum width of the image */
+    width: 100%; /* Ensure the image scales responsively */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Center the image */
+    margin: 0 auto; /* Center the image horizontally */
 }
 
-.intro-image img {
-    max-width: 80%;
-    max-height: 80%;
-    height: auto;
-    border-radius: 10px;
-    animation: slideInRight 1s ease-in-out forwards; /* Apply slide-in from right animation */
+/* Add spacing below the intro section */
+.intro-section {
+    margin-bottom: 40px; /* Create space between intro and "Nos Cours" */
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+    .intro-image img {
+        display: none; /* Hide the image */
+    }
+    .intro-section {
+        margin-bottom: 60px; /* Increase spacing for smaller screens */
+    }
 }
 
 /* Style for the 'Découvrez Nos Cours' button */
@@ -735,8 +827,7 @@ body {
     cursor: pointer; /* Pointer cursor on hover */
     transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth hover effect */
     align-self: flex-start; /* Align the button to the left */
-    margin-left: 70px; /* Add spacing from the left */
-    margin-top: 50px; /* Move the button slightly upwards */
+    margin-top: 30px; /* Move the button slightly upwards */
     display: flex; /* Use flexbox for alignment */
     align-items: center; /* Center content vertically */
     gap: 10px; /* Add spacing between text and arrow */
@@ -813,11 +904,11 @@ body {
     padding: 20px 0; /* Add padding for spacing */
     text-align: center; /* Center-align text */
     font-family: 'Lora', serif; /* Use refined serif font */
-    font-size: 1rem; /* Adjust font size */
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
 }
 
-.footer a {
+
+.footer a , .footer p {
     color: #5572a8; /* Match theme color */
     text-decoration: none; /* Remove underline */
     font-weight: 500; /* Slightly bold text */
@@ -842,6 +933,26 @@ body {
     margin-left: 20px; /* Add distance from the left */
 }
 
+/* Footer Contact Styles */
+.footer-contact h3 {
+    font-size: 0.9rem; /* Reduce heading size */
+}
+.footer-contact p {
+    font-size: 0.8rem; /* Reduce paragraph size */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .footer-contact h3 {
+        font-size: 0.8rem; /* Further reduce heading size */
+    }
+    .footer-contact p {
+        font-size: 0.7rem; /* Further reduce paragraph size */
+    }
+}
+.footer-bottom {
+    font-size: 1rem;
+}
 .footer-social {
     flex: 1;
     text-align: right; /* Align content to the right */
@@ -863,4 +974,35 @@ body {
     .footer-social {
         text-align: center; /* Center-align content */
     }
+}
+
+/* Ensure no gap between header and intro section */
+.header {
+    margin-bottom: 0;
+    padding-bottom: 0; /* Remove any padding at the bottom */
+}
+
+.intro-section {
+    margin-top: 0;
+    padding-top: 0; /* Remove any padding at the top */
+}
+
+/* Align text and images horizontally and center them */
+.card {
+    flex-direction: row; /* Arrange items in a row */
+    justify-content: center; /* Center align text and image */
+    align-items: center; /* Vertically align text and image */
+    text-align: center; /* Center text within its container */
+}
+.card-text {
+    padding-right: 20px; /* Add spacing between text and image */
+}
+.card-image {
+    flex: 1; /* Ensure image and text share space equally */
+}
+
+/* Add hover animation for the intro image */
+.intro-image img:hover {
+    transform: scale(1.1); /* Slightly enlarge the image on hover */
+    transition: transform 0.3s ease-in-out; /* Smooth transition effect */
 }

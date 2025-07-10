@@ -76,4 +76,44 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Intersection Observer for testimonial cards
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const options = {
+        root: null,           // viewport
+        rootMargin: '0px',
+        threshold: 0.4        // 40% visible
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    testimonialCards.forEach(card => observer.observe(card));
+
+    // Intersection Observer for contact form
+    const contactForm = document.querySelector('.contact-form');
+    const contactOptions = {
+        root: null,           // viewport
+        rootMargin: '0px',
+        threshold: 0.4        // 40% visible
+    };
+
+    const contactObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, contactOptions);
+
+    if (contactForm) {
+        contactObserver.observe(contactForm);
+    }
 });
