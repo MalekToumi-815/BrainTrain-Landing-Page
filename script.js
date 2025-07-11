@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const targetPosition = targetElement.offsetTop - 110; // Adjust for header height
                 const startPosition = window.pageYOffset;
                 const distance = targetPosition - startPosition;
-                const duration = 800;
+                const duration = 500;
                 let startTime = null;
 
                 const animation = currentTime => {
