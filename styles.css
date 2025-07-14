@@ -1,3 +1,16 @@
+/* Fade-in animation for accueil section */
+@keyframes fadeInAccueil {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.intro-section.fade-in {
+  animation: fadeInAccueil 1.2s ease-out;
+  opacity: 1;
+}
+.intro-section {
+  opacity: 0;
+}
 
 * {
     margin: 0;

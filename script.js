@@ -1,6 +1,14 @@
 // JavaScript for toggling the navigation menu
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Fade-in animation for accueil section
+    const introSection = document.querySelector('.intro-section');
+    if (introSection) {
+        setTimeout(() => {
+            introSection.classList.add('fade-in');
+        }, 100); // slight delay for effect
+    }
+
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const navigation = document.querySelector('.navigation');
 
