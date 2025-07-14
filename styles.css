@@ -19,15 +19,15 @@
 }
 
 html {
-    font-size: 16px;
+    font-size: clamp(15px, 2vw, 18px); /* Responsive base font size */
     scroll-behavior: smooth;
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
-    font-size: 22px; /* Increase base font size further */
-    font-weight: bold; /* Make text bolder */
-    line-height: 1.8; /* Improve readability */
+    font-size: clamp(1.05rem, 2vw, 1.25rem); /* Responsive body font size */
+    font-weight: bold;
+    line-height: 1.8;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -35,14 +35,14 @@ body {
 
 /* Update heading styles */
 h1, h2 {
-    font-size: 3.5rem; /* Make headings much larger */
-    font-weight: bold; /* Make headings bolder */
+    font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive headings */
+    font-weight: bold;
 }
 
 /* Update paragraph styles */
 p {
-    font-size: 1.8rem; /* Make paragraph text much larger */
-    font-weight: bold; /* Make paragraph text bolder */
+    font-size: clamp(1rem, 2vw, 1.2rem); /* Responsive paragraph text */
+    font-weight: bold;
 }
 
 /* ————————————————————————————————————————
@@ -52,7 +52,7 @@ p {
 
 #cours h1 ,#contact h1 ,#temoignages h1{
     margin: 0;
-    font-size: 2.5rem;
+    font-size: clamp(1.2rem, 4vw, 2rem); /* Responsive section heading */
     color: #2c3e50;
 }
 
@@ -76,7 +76,7 @@ p {
     text-align: center;
     width: 100%;
     margin-bottom: 40px;
-    font-size: 3rem;
+    font-size: clamp(1.2rem, 5vw, 2.2rem); /* Responsive cours heading */
     display: block;
 }
 
@@ -102,14 +102,14 @@ p {
 }
 .card-text h2 {
     margin: 0 0 12px;
-    font-size: 1.8rem;
+    font-size: clamp(1.1rem, 3vw, 1.5rem); /* Responsive card title */
     color: #2c3e50;
 }
 
 .card-text p {
     margin: 0;
     color: #555;
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem); /* Responsive card paragraph */
     line-height: 1.6;
 }
 /* Initial hidden states */
@@ -267,14 +267,14 @@ p {
 }
 
 .testimonial-text {
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem); /* Responsive testimonial text */
     font-style: italic;
     margin-bottom: 15px;
     color: #555;
 }
 
 .testimonial-author {
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem); /* Responsive testimonial author */
     font-weight: bold;
     color: #2a4185;
 }
@@ -332,7 +332,7 @@ p {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem); /* Responsive form input */
     background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent input background */
 }
 
@@ -349,7 +349,7 @@ p {
     border-radius: 5px;
     background-color: #5572a8;
     color: #fff;
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem); /* Responsive button */
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -419,7 +419,7 @@ p {
 
 .company-name {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
-    font-size: clamp(28px, 5vw, 40px); /* Adjust font size for better visibility */
+    font-size: clamp(1.2rem, 4vw, 2rem); /* Responsive company name */
     font-weight: bold;
     color: #2c3e50; /* Darker color for better contrast */
     margin: 0;
@@ -454,7 +454,7 @@ p {
     text-decoration: none;
     color: #2c3e50; /* Darker color for navigation links */
     font-weight: 500;
-    font-size: clamp(16px, 2.5vw, 18px);
+    font-size: clamp(1rem, 2.5vw, 1.15rem); /* Responsive nav link */
     padding: 12px 18px;
     border-radius: 5px;
     transition: all 0.3s ease;
@@ -800,17 +800,17 @@ p {
 
 /* Update symbolic phrase styles */
 .symbolic-phrase {
-    font-family: 'Roboto Slab', serif; /* Change to a modern serif font */
-    font-size: 3rem; /* Make the text larger */
-    font-weight: 700; /* Make the text bolder */
+    font-family: 'Roboto Slab', serif;
+    font-size: clamp(1.2rem, 5vw, 2.2rem); /* Responsive symbolic phrase */
+    font-weight: 700;
     margin-bottom: 20px;
-    text-align: left; /* Align to the top */
+    text-align: left;
 }
 
 .description {
-    font-family: 'Lora', serif; /* Change to a refined serif font */
-    font-size: 1.2rem; /* Increase the font size */
-    line-height: 1.8; /* Improve readability */
+    font-family: 'Lora', serif;
+    font-size: clamp(1rem, 2vw, 1.2rem); /* Responsive description */
+    line-height: 1.8;
     color: #2c3e50; /* Ensure the text color matches the theme */
 }
 
@@ -851,7 +851,7 @@ p {
 .discover-courses {
     background-color: #5572a8; /* Match the theme color */
     color: #ffffff; /* White text for contrast */
-    font-size: 1rem; /* Adjust font size */
+    font-size: clamp(0.95rem, 2vw, 1.1rem); /* Responsive button text */
     padding: 10px 20px; /* Add padding for better appearance */
     border: none; /* Remove default border */
     border-radius: 25px; /* Rounded corners */
@@ -966,44 +966,29 @@ p {
 
 /* Footer Contact Styles */
 .footer-contact h3 {
-    font-size: 0.9rem; /* Reduce heading size */
+    font-size: clamp(0.8rem, 2vw, 1rem); /* Responsive footer heading */
 }
 .footer-contact p {
-    font-size: 0.8rem; /* Reduce paragraph size */
+    font-size: clamp(0.7rem, 1.8vw, 0.95rem); /* Responsive footer paragraph */
 }
 
-/* Responsive adjustments for smaller screens */
+.footer-bottom p {
+    font-size: clamp(0.95rem, 2vw, 1.1rem); /* Responsive footer bottom */
+}
+
 @media (max-width: 768px) {
+    .symbolic-phrase {
+        font-size: clamp(1rem, 4vw, 1.5rem); /* Responsive for small screens */
+    }
+    .discover-courses {
+        font-size: clamp(0.85rem, 2vw, 1rem); /* Responsive for small screens */
+        padding: 10px 20px;
+    }
     .footer-contact h3 {
-        font-size: 0.8rem; /* Further reduce heading size */
+        font-size: clamp(0.7rem, 2vw, 0.85rem); /* Responsive footer heading (smaller screens) */
     }
     .footer-contact p {
-        font-size: 0.7rem; /* Further reduce paragraph size */
-    }
-}
-.footer-bottom p {
-    font-size: 1rem;
-}
-.footer-social {
-    flex: 1;
-    text-align: right; /* Align content to the right */
-    margin-right: 20px; /* Add distance from the right */
-}
-
-.footer-social img {
-    max-width: 30px; /* Reduce image size */
-    max-height: 30px; /* Maintain aspect ratio */
-}
-
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column; /* Stack items vertically on smaller screens */
-        align-items: center; /* Center-align items */
-    }
-
-    .footer-contact,
-    .footer-social {
-        text-align: center; /* Center-align content */
+        font-size: clamp(0.6rem, 1.5vw, 0.8rem); /* Responsive footer paragraph (smaller screens) */
     }
 }
 
@@ -1039,3 +1024,13 @@ p {
 }
 
 /* Actualité section and related styles removed */
+
+/* Footer social icons */
+.footer-social img {
+    max-width: 30px;
+    max-height: 30px;
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: inline-block;
+}
