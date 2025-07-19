@@ -124,4 +124,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactObserver.observe(contactForm);
     }
+
+    // Dropdown toggle for mobile
+    const dropdown = document.querySelector('.nav-menu .dropdown > a');
+    if (dropdown) {
+        dropdown.addEventListener('click', function(e) {
+            // Only on mobile
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                const parentLi = this.parentElement;
+                parentLi.classList.toggle('active');
+                // Close other open dropdowns
+                document.querySelectorAll('.nav-menu .dropdown').forEach(li => {
+                    if (li !== parentLi) li.classList.remove('active');
+                });
+            }
+        });
+    }
 });
