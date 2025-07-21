@@ -195,7 +195,7 @@ p {
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
+@media (max-width: 892px) {
     .card {
         flex-direction: column-reverse;
         text-align: center;
@@ -252,6 +252,7 @@ p {
 .testimonial-card:nth-of-type(1).in-view { animation-delay: 0.2s; }
 .testimonial-card:nth-of-type(2).in-view { animation-delay: 0.4s; }
 .testimonial-card:nth-of-type(3).in-view { animation-delay: 0.6s; }
+
 
 /* Keyframes for testimonial card animation */
 @keyframes slideInTestimonial {
@@ -531,7 +532,7 @@ p {
 }
 
 /* Desktop: show dropdown on hover/focus */
-@media (min-width: 769px) {
+@media (min-width: 893px) {
   .nav-menu .dropdown:hover > .dropdown-menu,
   .nav-menu .dropdown:focus-within > .dropdown-menu {
     display: flex;
@@ -539,7 +540,7 @@ p {
 }
 
 /* Mobile: show dropdown when .dropdown.active */
-@media (max-width: 768px) {
+@media (max-width: 892px) {
   .nav-menu .dropdown-menu {
     position: static;
     min-width: 0;
@@ -599,7 +600,7 @@ p {
     justify-content: flex-end;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 892px) {
     .hamburger-menu {
         display: block; /* Show hamburger menu on small screens */
     }
@@ -629,7 +630,7 @@ p {
 }
 
 /* Ensure the navigation disappears when the screen width is 892px or lower */
-@media (max-width: 892px) and (min-width: 769px) {
+@media (max-width: 892px) and (min-width: 893px) {
     .hamburger-menu {
         display: block; /* Show hamburger menu */
     }
@@ -721,7 +722,7 @@ p {
 }
 
 /* Tablets */
-@media (max-width: 768px) {
+@media (max-width: 892px) {
     .header {
         padding: 15px 0;
         min-height: 80px;
@@ -824,7 +825,7 @@ p {
   }
 
 /* Landscape orientation on mobile */
-@media (max-width: 768px) and (orientation: landscape) {
+@media (max-width: 892px) and (orientation: landscape) {
     .header {
         padding: 5px 0;
         min-height: 50px;
@@ -925,7 +926,7 @@ p {
 }
 
 /* Responsive adjustments for small screens */
-@media (max-width: 768px) {
+@media (max-width: 892px) {
     .intro-image img {
         display: none; /* Hide the image */
     }
@@ -940,6 +941,16 @@ p {
     .discover-courses {
         font-size: 1rem; /* Smaller button text size */
         padding: 10px 20px; /* Adjust button padding */
+    }
+}
+
+/* Ensure the image in the 'accueil' section is visible on smaller screens by adjusting its display and size properties */
+@media (max-width: 892px) {
+    #accueil .intro-image img {
+        display: block; /* Ensure image is visible */
+        max-width: 100%; /* Adjust image size to fit smaller screens */
+        height: auto; /* Maintain aspect ratio */
+        margin: 0 auto; /* Center the image */
     }
 }
 
@@ -1139,7 +1150,7 @@ p {
     font-size: clamp(0.95rem, 2vw, 1.1rem); /* Responsive footer bottom */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 892px) {
     .symbolic-phrase {
         font-size: clamp(1rem, 4vw, 1.5rem); /* Responsive for small screens */
     }
@@ -1204,9 +1215,38 @@ p {
     transform: scale(1.18);
 }
 
-/* Hide hamburger menu on screens larger than 768px */
-@media (min-width: 769px) {
+/* Hide hamburger menu on screens larger than 892px */
+@media (min-width: 893px) {
     .hamburger-menu {
         display: none;
     }
+}
+
+#accueil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Adjust height to fit content */
+    overflow: visible; /* Ensure content is not clipped */
+    padding: 20px; /* Add padding for spacing */
+}
+
+/* Ensure the hamburger menu icon remains visible when the menu is opened */
+.hamburger-menu {
+    z-index: 1000; /* Ensure hamburger menu is above other elements */
+}
+
+.navigation.active {
+    z-index: 1000; /* Place navigation menu below the hamburger menu */
+    box-shadow: none; /* Remove shadow from navigation menu */
+    border: none; /* Remove all borders */
+    border-bottom: 2px solid white; /* Add a white line at the bottom */
+    border-bottom-left-radius: 10px; /* Add border radius to the bottom left */
+    border-bottom-right-radius: 10px; /* Add border radius to the bottom right */
+}
+
+/* Ensure the accueil section moves below the navigation menu when it opens */
+.navigation.active + #accueil {
+    margin-top: 80px; /* Adjust margin to move accueil further below the menu */
 }
