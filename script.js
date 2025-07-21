@@ -16,7 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
         navigation.classList.toggle('active');
     });
 
+    // Ensure menu closes after pressing a link
     const navLinks = document.querySelectorAll('.nav-menu a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navigation.classList.remove('active');
+        });
+    });
 
     navLinks.forEach(link => {
         link.addEventListener('click', event => {

@@ -568,6 +568,31 @@ p {
     color: #2c3e50;
 }
 
+/* Update hamburger menu design */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35px;
+    height: 25px;
+    cursor: pointer;
+}
+.hamburger-menu div {
+    height: 4px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.hamburger-menu.animate div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger-menu.animate div:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.animate div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
 .navigation {
     flex: 1;
     display: flex;
@@ -1026,12 +1051,11 @@ p {
 .footer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 32px;
     padding: 32px 0 0 0;
-    max-width: 1200px;
     margin: 0;
     width: 100%;
     background: linear-gradient(to right, #c2d3f0, #e6edf7);
@@ -1177,4 +1201,11 @@ p {
 
 .footer-social img:hover {
     transform: scale(1.18);
+}
+
+/* Hide hamburger menu on screens larger than 768px */
+@media (min-width: 769px) {
+    .hamburger-menu {
+        display: none;
+    }
 }
