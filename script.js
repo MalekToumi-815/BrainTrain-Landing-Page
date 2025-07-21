@@ -16,7 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
         navigation.classList.toggle('active');
     });
 
+    // Ensure menu closes after pressing a link
     const navLinks = document.querySelectorAll('.nav-menu a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navigation.classList.remove('active');
+        });
+    });
 
     navLinks.forEach(link => {
         link.addEventListener('click', event => {
@@ -137,6 +144,92 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Close other open dropdowns
                 document.querySelectorAll('.nav-menu .dropdown').forEach(li => {
                     if (li !== parentLi) li.classList.remove('active');
+                });
+            }
+        });
+    }
+
+
+    // Adjusted smooth scrolling for 'Robotics' link with lower offset
+    const roboticsLink = document.querySelector('.dropdown-menu a[href="#robotics"]');
+
+    if (roboticsLink) {
+        roboticsLink.addEventListener('click', event => {
+            event.preventDefault();
+            const targetElement = document.getElementById('robotics');
+
+            if (targetElement) {
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 250; // Adjusted offset for less scrolling to the bottom
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 800;
+                let startTime = null;
+
+                const animation = currentTime => {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const run = ease(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                };
+
+                const ease = (t, b, c, d) => {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t + b;
+                    t--;
+                    return -c / 2 * (t * (t - 2) - 1) + b;
+                };
+
+                requestAnimationFrame(animation);
+            }
+        });
+    }
+
+    // Smooth scrolling for 'English,' 'Entrepreneuriat,' and 'Programmation' links
+    const englishLink = document.querySelector('.dropdown-menu a[href="#english"]');
+    const entrepreneuriatLink = document.querySelector('.dropdown-menu a[href="#entrepreneuriat"]');
+    const programmationLink = document.querySelector('.dropdown-menu a[href="#programmation"]');
+
+    if (englishLink) {
+        englishLink.addEventListener('click', event => {
+            event.preventDefault();
+            const targetElement = document.getElementById('english');
+
+            if (targetElement) {
+                const targetPosition = targetElement.offsetTop - 110; // Adjusted offset for header height
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+
+    if (entrepreneuriatLink) {
+        entrepreneuriatLink.addEventListener('click', event => {
+            event.preventDefault();
+            const targetElement = document.getElementById('entrepreneuriat');
+
+            if (targetElement) {
+                const targetPosition = targetElement.offsetTop - 110; // Adjusted offset for header height
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+
+    if (programmationLink) {
+        programmationLink.addEventListener('click', event => {
+            event.preventDefault();
+            const targetElement = document.getElementById('programmation');
+
+            if (targetElement) {
+                const targetPosition = targetElement.offsetTop - 110; // Adjusted offset for header height
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
