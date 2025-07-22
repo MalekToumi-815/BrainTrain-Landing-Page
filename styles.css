@@ -571,27 +571,8 @@ p {
 
 /* Update hamburger menu design */
 .hamburger-menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 35px;
-    height: 25px;
+    font-size: 24px;
     cursor: pointer;
-}
-.hamburger-menu div {
-    height: 4px;
-    background-color: #333;
-    border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-.hamburger-menu.animate div:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-.hamburger-menu.animate div:nth-child(2) {
-    opacity: 0;
-}
-.hamburger-menu.animate div:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 .navigation {
