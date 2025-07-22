@@ -1062,12 +1062,11 @@ p {
 .footer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 32px;
     padding: 32px 0 0 0;
-    max-width: 1200px;
     margin: 0;
     width: 100%;
     background: linear-gradient(to right, #c2d3f0, #e6edf7);
@@ -1150,7 +1149,7 @@ p {
     font-size: clamp(0.95rem, 2vw, 1.1rem); /* Responsive footer bottom */
 }
 
-@media (max-width: 892px) {
+@media (max-width: 768px) {
     .symbolic-phrase {
         font-size: clamp(1rem, 4vw, 1.5rem); /* Responsive for small screens */
     }
