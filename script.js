@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburgerMenu.addEventListener('click', () => {
         navigation.classList.toggle('active');
         if (navigation.classList.contains('active')) {
-            accueilSection.style.marginTop = '60px'; // Adjust margin dynamically
+            //accueilSection.style.marginTop = '60px'; // Adjust margin dynamically
         } else {
             accueilSection.style.marginTop = '0'; // Reset margin when menu closes
         }
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-menu a');
 
     navLinks.forEach(link => {
+        if (link.getAttribute('href') !== '#cours')
         link.addEventListener('click', () => {
             navigation.classList.remove('active');
         });
